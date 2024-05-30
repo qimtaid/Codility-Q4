@@ -32,3 +32,4 @@ function solution(A) {
   }
   return Math.max(maxLen, A.length - start);
 }
+console.log(solution([17, 4, -2, 4, -2, -91]))

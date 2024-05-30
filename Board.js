@@ -41,3 +41,5 @@ function solution(A) {
   }
   return result;
 }
+
+console.log(solution([9]))

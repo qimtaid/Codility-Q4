@@ -1,5 +1,5 @@
 //QN2
-// There is a string S that consists only of non-zero digits (1-9). We can choose two adjacent digits in S and replace them with their sum, but only if the sum is not greatel
+// There is a string S that consists only of non-zero digits (1-9). We can choose two adjacent digits in S and replace them with their sum, but only if the sum is not greater
 // than 9. For example, if S = "356",
 // ", we can replace "35" with "8", achieving "86", but we
 // cannot replace "56" with "11". The operation may be applied multiple times in order to produce a final answer.
@@ -39,3 +39,5 @@ function solution(S) {
 
   return stack.join(""); // Join the stack to get the final result
 }
+
+console.log([32581])

@@ -20,36 +20,27 @@
 //     • each element of array A is an integer within the range [0.200].
 //     In your solution, focus on correctness. The performance of your solution will not be the focus of the assessment.
 function solution(A) {
-    // Implement your solution here
-    // NUmbered 0 to n-1
-    // Sort
-    // total number in bricks in a box
-    // Determine the target numbet of bricks(10)
-    // Calculate the total number of moves needed to reach the target(10)
-    // Return thr total number of moves and the min moves needed
-    let totalMoves = 0
-    const totalBricks = A.reduce((account, bricks )=> account + bricks, 0)
-    if( totalBricks !== 10* A.length){
-        return -1
+    const N = A.length;
+    const TARGET = 10;
+    const totalBricks = A.reduce((acc, bricks) => acc + bricks, 0);
+
+    if (totalBricks !== TARGET * N) {
+        return -1;
     }
-    for(let i=0; i<A.length - 1; i++){
-        if(A[i] < 10){
-            moves = 10 - A[i]
-            A[i+ 1] -= moves
-            A[i] += moves
-            totalMoves += moves
-        }
-        if( A[i] > 10){
-            moves = A[i] - 10
-            A[i+ 1] += moves
-            A[i] -= moves
-            totalMoves += moves
-        }
+
+    let moves = 0;
+
+    for (let i = 0; i < N - 1; i++) {
+        let excess = A[i] - TARGET;
+        A[i] -= excess;
+        A[i + 1] += excess;
+        moves += Math.abs(excess);
     }
-    return  totalMoves
+
+    return moves;
 }
 
-// Example usage:
-const X = [1, 8, 7, 3, 4, 1, 8];
-const Y = [6, 4, 1, 8, 5, 1, 7];
-console.log(widestPath(X, Y)); 
+// Example test cases
+console.log(solution([7, 15, 10, 8])); // Output: 7
+console.log(solution([11, 10, 8, 12, 8, 10, 11])); // Output: 6
+console.log(solution([17, 14, 10])); // Output: -1
